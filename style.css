@@ -1,0 +1,69 @@
+/* Table inside the mediaInfo modal */
+table {
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    /*word-break: break-all;*/
+}
+
+.Filtered {
+  table-layout: fixed;
+  width: 50%;
+}
+  
+table th {
+  font-weight: bold;
+  font-size: 1.0em;
+  text-align: left;
+  padding-top: 18px;
+  padding-bottom: 2px;
+}
+
+  
+table .table-header {
+  background-color: rgba(0,0,0,0) !important;
+}
+  
+.Filtered td {
+  border: 1px solid #ddd;
+  word-break: break-all;
+  white-space: normal;
+  /*width: 50%;*/
+}
+  
+table tr:nth-child(odd) {
+  background-color: rgba(0,0,0,0.1);
+}
+
+.Uur{
+  width:6%;
+}
+
+.Klas{
+  width:10%;
+}
+
+.Vak{
+  width:10%;
+}
+
+.Lokaal{
+  width:10%;
+}
+
+.Docent{
+  width:10%;
+}
+
+
+#table-raw {
+  display: none;
+}
+
+#auth {
+  display: none;
+}
+
+#settings {
+  display: none;
+}
+

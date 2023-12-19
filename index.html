@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roosterwijzigingen vandaag</title>
+  <link rel="stylesheet" type="text/css" href="style.css" media="screen,projection">
+</head>
+<body>
+
+  <div id="auth">
+    <h2>Authentication</h2>
+      School id: <input title="You can find it by going to the portal of your school and selecting the part between the https and the first dot." id="school" type="text" style="width:80px"></input>
+      <br/>
+      Koppel code: <input title="You can find it in the 'Koppel externe applicatie' section of the portal" id="API_key" type="text" style="width:80px"></input>
+      or token: <input title="Get the token from the Zermelo administrator" id="token" type="text" style="width:80px"></input>
+      <button id="login">Log in</button><div style="color:red" id="loginError"></div>
+    </div>
+
+    <div id="settings">
+      <h2>Settings</h2>
+        Date: <input title="Date" id="date" type="date" style="width:120px"></input>
+        <br/>
+        Changes since: <input title="Date" id="modSince" type="date" style="width:120px"></input>
+        <button id="getSchedule">Get schedule</button>
+      </div>
+  
+
+
+  <h2>Roosterwijzigingen van <div style="display: inline-block;" id="dateString"></div>
+    <button id="toggleAuth">Log in</button> <button id="toggleSettings">Settings</button></h2>
+  <div id="table-filtered"></div>
+  <p></p>
+
+  <button title="Show/hide raw table" id="toggleRaw">Show raw table</button>
+  <div id="table-raw"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="scheduleChanges.js"></script>
+
+</body>
+</html>
