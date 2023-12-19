@@ -42,12 +42,16 @@
   // Get token from the local storage
   const tokenKey = 'zermeloToken';
   let token = localStorage.getItem(tokenKey);
-  let school = token.split(' ')[1];
-  token = token.split(' ')[0];
-  console.log(token);
-  console.log(school);
+  let school = '';
   let url = `https://${school}.zportal.nl/api/v3/`;
-  console.log(`You're logged in into: ${url}`);
+  if( token ) {
+      school = token.split(' ')[1];
+      token = token.split(' ')[0];
+      console.log(token);
+      console.log(school);
+      url = `https://${school}.zportal.nl/api/v3/`;
+      console.log(`You're logged in into: ${url}`);
+  }
   if( school == ""  || !token || token.length != 26 ) {
     console.log("Token not yet stored");
     $('#auth').show();
@@ -61,7 +65,6 @@
     token = $("#token").val();
     if( !token || token.length != 26 ) {
       getToken(school, API_key).then(r => {
-          console.log("tot hier");
           token = localStorage.getItem(tokenKey).split(' ')[0];
           console.log(token);
           $('#auth').hide();
@@ -153,7 +156,9 @@
                   //obj.changeDescription === "" ||
                   (!obj.valid && arr.some( l => {
                     return obj.appointmentInstance == l.appointmentInstance && 
-                            l.start == obj.start && l.valid;})) //||
+                            l.startTimeSlot == obj.startTimeSlot &&
+                            getDate( l.start*1000 ) == getDate( obj.start*1000 ) ;
+                              l.valid;})) //||
                   //(obj.valid && !arr.some( l => {
                   //  return obj.appointmentInstance == l.appointmentInstance && 
                   //         l.start == obj.start && !l.valid;}))          
